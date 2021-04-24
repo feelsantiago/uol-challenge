@@ -47,7 +47,6 @@ async function bootstrap(): Promise<void> {
     SwaggerModule.setup('api', app, document);
 
     const appConfigService = app.get<AppConfigService>(AppConfigService);
-
     await app.listen(appConfigService.port);
 }
 void bootstrap();
