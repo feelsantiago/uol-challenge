@@ -1,8 +1,8 @@
 import { Type } from 'class-transformer';
 import { IsEnum, IsISO8601, IsMongoId, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 import { Types } from 'mongoose';
-import { ObjectId } from '../shared/utils/object-id';
-import { Sex } from './types';
+import { ObjectId } from '../../shared/utils/object-id';
+import { Sex } from '../types';
 
 export class ClientDto {
     @IsString()

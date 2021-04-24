@@ -2,8 +2,8 @@ import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { MongoQueryValidationPipe } from '../shared/pipes/mongo-query-validation.pipe';
 import { ObjectId } from '../shared/utils/object-id';
 import { ObjectIdTransformPipe } from '../shared/pipes/object-id-transform.pipe';
-import { CityQueryDto } from './city-query.dto';
-import { CityDto } from './city.dto';
+import { CityQueryDto } from './dtos/city-query.dto';
+import { CityDto } from './dtos/city.dto';
 import { City } from './city.schema';
 import { CityService } from './city.service';
 

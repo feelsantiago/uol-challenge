@@ -4,10 +4,10 @@ import { Model } from 'mongoose';
 import { ObjectId } from '../shared/utils/object-id';
 import { isValidDate } from '../shared/utils/date-helper';
 import { CityService } from '../city/city.service';
-import { ClientDto } from './client.dto';
+import { ClientDto } from './dtos/client.dto';
 import { Client, ClientDocument } from './client.schema';
-import { ClientUpdateDto } from './client-update.dto';
-import { ClientQueryDto } from './client-query.dto';
+import { ClientUpdateDto } from './dtos/client-update.dto';
+import { ClientQueryDto } from './dtos/client-query.dto';
 
 @Injectable()
 export class ClientService {

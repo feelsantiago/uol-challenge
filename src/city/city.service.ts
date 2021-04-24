@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { ObjectId } from '../shared/utils/object-id';
-import { CityQueryDto } from './city-query.dto';
-import { CityDto } from './city.dto';
+import { CityQueryDto } from './dtos/city-query.dto';
+import { CityDto } from './dtos/city.dto';
 import { City, CityDocument } from './city.schema';
 
 @Injectable()

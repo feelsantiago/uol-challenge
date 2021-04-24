@@ -1,9 +1,9 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
 import { MongoQueryValidationPipe } from '../shared/pipes/mongo-query-validation.pipe';
 import { ObjectId } from '../shared/utils/object-id';
-import { ClientQueryDto } from './client-query.dto';
-import { ClientUpdateDto } from './client-update.dto';
-import { ClientDto } from './client.dto';
+import { ClientQueryDto } from './dtos/client-query.dto';
+import { ClientUpdateDto } from './dtos/client-update.dto';
+import { ClientDto } from './dtos/client.dto';
 import { Client } from './client.schema';
 import { ClientService } from './client.service';
 
