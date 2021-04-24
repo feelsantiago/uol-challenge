@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+    mongo:
+        image: mongo
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: root
+        ports:
+            - 27018:27017
+    uol-challenge:
+        build:
+            context: .
+            target: production
+        container_name: uol-challenge
+        depends_on:
+            - mongo
+        environment:
+            NODE_ENV: docker
+        command: ['./wait-for-it.sh', 'mongo:27017', '-t', '10', '--', 'node', 'dist/main.js']
+        ports:
+            - 3000:3000
