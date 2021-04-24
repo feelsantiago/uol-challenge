@@ -1,4 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Document } from 'mongoose';
 import { City, CitySchema } from '../city/city.schema';
 import { Entity } from '../shared/utils/entity';
 import { Sex } from './types';
