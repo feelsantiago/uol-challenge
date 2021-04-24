@@ -23,7 +23,6 @@ export class CityController {
 
     @Get()
     public async get(@Query(MongoQueryValidationPipe) query: CityQueryDto): Promise<City[]> {
-        console.log(query);
         return this.cityService.find(query);
     }
 }
