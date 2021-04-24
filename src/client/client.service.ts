@@ -7,6 +7,7 @@ import { CityService } from '../city/city.service';
 import { ClientDto } from './client.dto';
 import { Client, ClientDocument } from './client.schema';
 import { ClientUpdateDto } from './client-update.dto';
+import { ClientQueryDto } from './client-query.dto';
 
 @Injectable()
 export class ClientService {
@@ -42,5 +43,13 @@ export class ClientService {
 
     public async delete(id: ObjectId): Promise<Client> {
         return this.clients.findByIdAndRemove(id).exec();
+    }
+
+    public async find(query: ClientQueryDto): Promise<Client[]> {
+        return this.clients.find({ ...query }).exec();
+    }
+
+    public async findById(id: ObjectId): Promise<Client> {
+        return this.clients.findById(id).exec();
     }
 }
