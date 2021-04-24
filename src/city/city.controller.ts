@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query, HttpCode } from '@nestjs/common';
 import { MongoQueryValidationPipe } from '../shared/pipes/mongo-query-validation.pipe';
 import { ObjectId } from '../shared/utils/object-id';
 import { ObjectIdTransformPipe } from '../shared/pipes/object-id-transform.pipe';
@@ -11,6 +11,7 @@ import { CityService } from './city.service';
 export class CityController {
     constructor(private readonly cityService: CityService) {}
 
+    @HttpCode(201)
     @Post()
     public async create(@Body() dto: CityDto): Promise<City> {
         return this.cityService.create(dto);
