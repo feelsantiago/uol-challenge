@@ -1,8 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { CityModule } from './city/city.module';
 import { ClientModule } from './client/client.module';
 import { SharedModule } from './shared/shared.module';
@@ -20,7 +18,5 @@ import { mongoConfig } from './shared/utils/mongo-config';
         CityModule,
         ClientModule,
     ],
-    controllers: [AppController],
-    providers: [AppService],
 })
 export class AppModule {}
