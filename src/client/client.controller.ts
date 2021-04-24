@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put, Query } from '@nestjs/common';
 import { MongoQueryValidationPipe } from '../shared/pipes/mongo-query-validation.pipe';
 import { ObjectId } from '../shared/utils/object-id';
 import { ClientQueryDto } from './dtos/client-query.dto';
@@ -11,6 +11,7 @@ import { ClientService } from './client.service';
 export class ClientController {
     constructor(private readonly clientService: ClientService) {}
 
+    @HttpCode(201)
     @Post()
     public async create(@Body() dto: ClientDto): Promise<Client> {
         return this.clientService.create(dto);
