@@ -1,16 +1,19 @@
 /* eslint-disable promise/prefer-await-to-then */
 /* eslint-disable promise/valid-params */
-import { Catch, ArgumentsHost, HttpException } from '@nestjs/common';
+import { Catch, ArgumentsHost, HttpException, Logger } from '@nestjs/common';
 import { BaseExceptionFilter } from '@nestjs/core';
 
 @Catch()
 export class AllExceptionsFilter extends BaseExceptionFilter {
+    private readonly logger: Logger = new Logger(AllExceptionsFilter.name);
+
     public catch(exception: unknown, host: ArgumentsHost): void {
         if (exception instanceof HttpException) {
+            this.logger.error(exception.stack);
             super.catch(exception, host);
         } else {
-            const message = exception instanceof Error ? exception.message : 'Internal Server Error';
-            super.catch(new HttpException(message, 500), host);
+            this.logger.error(exception instanceof Error ? exception.stack : exception);
+            super.catch(new HttpException('Internal server error', 500), host);
         }
     }
 }

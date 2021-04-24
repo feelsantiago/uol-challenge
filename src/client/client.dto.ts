@@ -1,6 +1,7 @@
 import { Type } from 'class-transformer';
-import { IsDateString, IsEnum, IsMongoId, IsNotEmpty, IsNumber, IsString } from 'class-validator';
-import { ObjectId, Types } from 'mongoose';
+import { IsEnum, IsISO8601, IsMongoId, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { Types } from 'mongoose';
+import { ObjectId } from '../shared/utils/object-id';
 import { Sex } from './types';
 
 export class ClientDto {
@@ -16,8 +17,8 @@ export class ClientDto {
     @IsNotEmpty()
     public age: number;
 
-    @IsDateString()
-    public birthDate: Date;
+    @IsISO8601()
+    public birthDate: string;
 
     @IsMongoId()
     @Type(() => Types.ObjectId)
