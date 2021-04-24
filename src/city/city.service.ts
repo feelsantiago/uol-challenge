@@ -1,5 +1,7 @@
-import { Inject, Injectable } from '@nestjs/common';
-import { Model, Types } from 'mongoose';
+import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { ObjectId } from '../shared/utils/object-id';
 import { CityQueryDto } from './city-query.dto';
 import { CityDto } from './city.dto';
 import { City, CityDocument } from './city.schema';
@@ -10,7 +12,7 @@ export class CityService {
         return this.cityModel;
     }
 
-    constructor(@Inject(City.name) private readonly cityModel: Model<CityDocument>) {}
+    constructor(@InjectModel(City.name) private readonly cityModel: Model<CityDocument>) {}
 
     public async create(city: CityDto): Promise<City> {
         return this.cities.create(city);
@@ -20,7 +22,7 @@ export class CityService {
         return this.cities.find({ ...query }).exec();
     }
 
-    public async findById(id: Types.ObjectId): Promise<City> {
+    public async findById(id: ObjectId): Promise<City> {
         return this.cities.findById(id).exec();
     }
 }
