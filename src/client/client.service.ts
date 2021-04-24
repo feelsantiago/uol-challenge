@@ -1,10 +1,12 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { ObjectId } from '../shared/utils/object-id';
 import { isValidDate } from '../shared/utils/date-helper';
 import { CityService } from '../city/city.service';
 import { ClientDto } from './client.dto';
 import { Client, ClientDocument } from './client.schema';
+import { ClientUpdateDto } from './client-update.dto';
 
 @Injectable()
 export class ClientService {
@@ -32,5 +34,13 @@ export class ClientService {
         }
 
         return this.clients.create({ name, sex, age, birthDate, city });
+    }
+
+    public async update(id: ObjectId, dto: ClientUpdateDto): Promise<Client> {
+        return this.clients.findByIdAndUpdate(id, { $set: { ...dto } }, { new: true }).exec();
+    }
+
+    public async delete(id: ObjectId): Promise<Client> {
+        return this.clients.findByIdAndRemove(id).exec();
     }
 }

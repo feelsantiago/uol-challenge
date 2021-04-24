@@ -9,7 +9,7 @@ export class ClientDto {
     @IsNotEmpty()
     public name: string;
 
-    @IsEnum(Sex)
+    @IsEnum(Sex, { message: `sex must be [${Sex.masculine}, ${Sex.feminine}]` })
     @IsNotEmpty()
     public sex: Sex;
 
