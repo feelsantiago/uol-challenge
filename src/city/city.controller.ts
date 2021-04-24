@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
+import { MongoQueryValidationPipe } from '../shared/pipes/mongo-query-validation.pipe';
 import { ObjectId } from '../shared/utils/object-id';
-import { ObjectIdTransformPipe } from '../pipes/object-id-transform.pipe';
+import { ObjectIdTransformPipe } from '../shared/pipes/object-id-transform.pipe';
 import { CityQueryDto } from './city-query.dto';
 import { CityDto } from './city.dto';
 import { City } from './city.schema';
@@ -21,7 +22,8 @@ export class CityController {
     }
 
     @Get()
-    public async get(@Query() query: CityQueryDto): Promise<City[]> {
+    public async get(@Query(MongoQueryValidationPipe) query: CityQueryDto): Promise<City[]> {
+        console.log(query);
         return this.cityService.find(query);
     }
 }

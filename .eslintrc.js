@@ -89,6 +89,7 @@ module.exports = {
         'unicorn/prefer-node-protocol': 'off',
         'unicorn/prefer-module': 'off',
         'unicorn/no-array-callback-reference': 'off',
+        'unicorn/no-array-reduce': 'off',
         'promise/prefer-await-to-then': 'warn',
     },
 };
