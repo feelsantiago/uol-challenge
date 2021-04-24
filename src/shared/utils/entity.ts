@@ -1,11 +1,11 @@
 import { Types } from 'mongoose';
 
-export interface Entity {
-    _id: Types.ObjectId;
+export class Entity {
+    public _id: Types.ObjectId;
 
-    id: string;
+    public id: string;
 
-    createdAt: Date;
+    public createdAt: Date;
 
-    updatedAt: Date;
+    public updatedAt: Date;
 }
