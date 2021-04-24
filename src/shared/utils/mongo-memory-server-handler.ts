@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { MongoMemoryServer } from 'mongodb-memory-server';
-import { Collection, Connection } from 'mongoose';
+import { Connection } from 'mongoose';
 
 export class MongoMemoryServerHandle {
     private readonly mongod = new MongoMemoryServer({ autoStart: false });
@@ -17,9 +17,12 @@ export class MongoMemoryServerHandle {
     public async clear(connection: Connection): Promise<void> {
         const { collections } = connection;
 
-        const promises = [].map.call(collections, (collection: Collection) =>
-            collection.deleteMany({}),
-        ) as Promise<unknown>[];
+        const promises = [];
+        for (const key in collections) {
+            if ({}.hasOwnProperty.call(collections, key)) {
+                promises.push(collections[key].deleteMany({}));
+            }
+        }
 
         await Promise.all(promises);
     }
