@@ -2,7 +2,7 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>
 
-[![build/lint - CI](https://github.com/feelsantiago/uol-challenge/actions/workflows/github-ci.yml/badge.svg?branch=master)](https://github.com/feelsantiago/uol-challenge/actions/workflows/ci-pipeline.yml)
+[![Node-JS CI](https://github.com/feelsantiago/uol-challenge/actions/workflows/ci-pipeline.yml/badge.svg)](https://github.com/feelsantiago/uol-challenge/actions/workflows/ci-pipeline.yml)
 
 ## Description
 
