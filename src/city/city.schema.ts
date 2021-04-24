@@ -1,4 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Document } from 'mongoose';
 import { Entity } from '../shared/utils/entity';
 
 @Schema({ timestamps: true })

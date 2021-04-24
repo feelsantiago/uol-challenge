@@ -88,6 +88,7 @@ module.exports = {
         'unicorn/prevent-abbreviations': 'off',
         'unicorn/prefer-node-protocol': 'off',
         'unicorn/prefer-module': 'off',
+        'unicorn/no-array-callback-reference': 'off',
         'promise/prefer-await-to-then': 'warn',
     },
 };
